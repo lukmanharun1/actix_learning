@@ -6,8 +6,6 @@ use crate::handler::{ bin::middleware::authentication_token };
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    std::env::set_var("RUST_LOG", "debug");
-    env_logger::init();
     let host: String = dotenv::var("HOST").unwrap_or("http://localhost".to_string());
     let port: String = dotenv::var("PORT").unwrap_or("8080".to_string());
 
