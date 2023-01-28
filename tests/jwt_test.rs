@@ -6,7 +6,7 @@ use chrono::{Utc, Duration};
 mod tests {
     use super::*;
     #[test]
-    fn should_create_token_and_verify_token_jwt() {
+    fn should_create_token_and_verify_token_jwt_success() {
         let exp: usize = (Utc::now() + Duration::days(1)).timestamp() as usize;
         let username: String = String::from("Lukman");
         let age: u8 = 20;
