@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "823f11b7-8568-42ac-a559-88739760241b",
+		"name": "Actix Learning",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23186276"
+	},
+	"item": [
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "self",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token_user}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}profile/self",
+							"host": [
+								"{{HOST}}profile"
+							],
+							"path": [
+								"self"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete self",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token_user}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}profile/self",
+							"host": [
+								"{{HOST}}profile"
+							],
+							"path": [
+								"self"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update self",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token_user}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"lukman ganteng\",\r\n    \"gender\": \"male\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}profile/self",
+							"host": [
+								"{{HOST}}profile"
+							],
+							"path": [
+								"self"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"lukman harun\",\r\n    \"email\": \"lukmana@harun.com\",\r\n    \"age\": 19,\r\n    \"gender\": \"male\",\r\n    \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}auth",
+					"host": [
+						"{{HOST}}auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"lukmana@harun.com\",\r\n    \"password\": \"lukman@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}auth",
+					"host": [
+						"{{HOST}}auth"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "http://localhost:8080/",
+			"type": "string"
+		},
+		{
+			"key": "token_user",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Imx1a21hbiBnYW50ZW5nIiwiZW1haWwiOiJsdWttYW5hQGhhcnVuLmNvbSIsImFnZSI6MTksImdlbmRlciI6Im1hbGUiLCJleHAiOjE2NzQ5OTk5MDV9.5ApDukrTTNE7Pn7_Z5vMNirxdC7xGZfq_7F7o4nMN84",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "Harun@lukman1",
+			"type": "string"
+		}
+	]
+}
