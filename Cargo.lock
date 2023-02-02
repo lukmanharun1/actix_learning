@@ -76,6 +76,7 @@ name = "actix-learning"
 version = "0.1.0"
 dependencies = [
  "actix-cors",
+ "actix-multipart",
  "actix-web",
  "chrono",
  "dotenv",
@@ -97,6 +98,24 @@ checksum = "465a6172cf69b960917811022d8f29bc0b7fa1398bc4f78b3c466673db1213b6"
 dependencies = [
  "quote",
  "syn",
+]
+
+[[package]]
+name = "actix-multipart"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5011f5be460e35a5b82e1745c0ea0c6293e8f8d38bbaa1f0455afcff5b454ad6"
+dependencies = [
+ "actix-utils",
+ "actix-web",
+ "bytes",
+ "derive_more",
+ "futures-core",
+ "httparse",
+ "local-waker",
+ "log",
+ "memchr",
+ "mime",
 ]
 
 [[package]]
