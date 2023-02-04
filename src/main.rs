@@ -3,6 +3,7 @@ mod handler;
 use actix_cors::Cors;
 use actix_web::{http, web, App, HttpServer };
 use handler::operator::{ auth, profile };
+
 use crate::handler::{ bin::middleware::authentication_token };
 
 #[actix_web::main]
@@ -19,7 +20,6 @@ async fn main() -> std::io::Result<()> {
               .allowed_headers(vec![http::header::AUTHORIZATION, http::header::ACCEPT])
               .allowed_header(http::header::CONTENT_TYPE)
               .max_age(3600);
-
         App::new()
             .wrap(cors)
             .route("/auth", web::post().to(auth::register))
@@ -28,9 +28,9 @@ async fn main() -> std::io::Result<()> {
                 web::scope("/profile").wrap(authentication_token::AuthenticationToken)
                     .route("/self", web::get().to(profile::get_profile))
                     .route("/self", web::patch().to(profile::update_profile))
+                    .route("/self-image", web::patch().to(profile::update_profile_image))
                     .route("/self", web::delete().to(profile::delete_profile))
             )
-                   
     })
     .bind(format!("{}:{}", host, port))?
     .run()
