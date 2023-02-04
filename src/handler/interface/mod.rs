@@ -33,6 +33,7 @@ pub struct PayloadUser {
     pub email: String,
     pub age: u8,
     pub gender: String,
+    pub image: Option<String>,
     pub exp: usize
 }
 

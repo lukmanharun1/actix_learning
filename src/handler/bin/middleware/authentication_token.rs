@@ -73,12 +73,14 @@ where
                         let age = decoded_token.claims.age;
                         let exp = decoded_token.claims.exp;
                         let gender = decoded_token.claims.gender;
+                        let image = decoded_token.claims.image;
                         service_request.extensions_mut().insert::<PayloadUser>(PayloadUser {
                             username,
                             age,
                             email,
                             exp,
-                            gender
+                            gender,
+                            image
                         });
                     }
                 }
