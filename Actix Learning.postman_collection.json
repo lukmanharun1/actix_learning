@@ -33,6 +33,40 @@
 					"response": []
 				},
 				{
+					"name": "self image",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token_user}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"contentType": "application/json",
+									"type": "file",
+									"src": "/C:/Users/Lukman/Downloads/copilot.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}profile/self-image",
+							"host": [
+								"{{HOST}}profile"
+							],
+							"path": [
+								"self-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "delete self",
 					"request": {
 						"method": "DELETE",
@@ -107,7 +141,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"lukman harun\",\r\n    \"email\": \"lukmana@harun.com\",\r\n    \"age\": 19,\r\n    \"gender\": \"male\",\r\n    \"password\": \"{{password}}\"\r\n}",
+					"raw": "{\r\n    \"username\": \"lukman harun\",\r\n    \"email\": \"{{email}}\",\r\n    \"age\": 19,\r\n    \"gender\": \"male\",\r\n    \"password\": \"{{password}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -139,7 +173,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"lukmana@harun.com\",\r\n    \"password\": \"lukman@gmail.com\"\r\n}",
+					"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -150,6 +184,73 @@
 					"raw": "{{HOST}}auth",
 					"host": [
 						"{{HOST}}auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/C:/Users/Lukman/Downloads/LOreal Paris White Perfect Clinical Day Cream.png",
+							"disabled": true
+						},
+						{
+							"key": "dsadas",
+							"value": "sdadas",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "Hey",
+							"value": "sdasa",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/C:/Users/Lukman/Downloads/Cara Memijat Wajah yang Benar.docx/LOreal Paris White Perfect Clinical Day Cream.png"
+						},
+						{
+							"key": "nama",
+							"value": "lukman",
+							"type": "text"
+						},
+						{
+							"key": "las",
+							"value": "lasname",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{HOST}}upload",
+					"host": [
+						"{{HOST}}upload"
 					]
 				}
 			},
@@ -184,12 +285,17 @@
 		},
 		{
 			"key": "token_user",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Imx1a21hbiBnYW50ZW5nIiwiZW1haWwiOiJsdWttYW5hQGhhcnVuLmNvbSIsImFnZSI6MTksImdlbmRlciI6Im1hbGUiLCJleHAiOjE2NzQ5OTk5MDV9.5ApDukrTTNE7Pn7_Z5vMNirxdC7xGZfq_7F7o4nMN84",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Imx1a21hbiBnYW50ZW5nIiwiZW1haWwiOiJsdWttYW5AaGFydW4uY29tIiwiYWdlIjoxOSwiZ2VuZGVyIjoibWFsZSIsImltYWdlIjoiNmF1ODRhb2pOamNVY2RoVllzdHpWOWdELnBuZyIsImV4cCI6MTY3NTU5Nzc1Nn0.ZECjY90fJo2uZR7UsB523Dqtja8xlXNmp0XnWMYwoSw",
 			"type": "string"
 		},
 		{
 			"key": "password",
 			"value": "Harun@lukman1",
+			"type": "string"
+		},
+		{
+			"key": "email",
+			"value": "lukman@harun.com",
 			"type": "string"
 		}
 	]

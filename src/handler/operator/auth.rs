@@ -1,9 +1,10 @@
-
 use mongodb::bson::{ doc };
 use actix_web::{ web, HttpResponse, Responder};
+
 use crate::handler::{models::{ user::{User, collection_user} }, interface::{ ResponseCreateToken, Token }, validation};
 use crate::handler::interface::{ResponseMessage, UserRegister, UserLogin, PayloadUser};
 use crate::handler::bin::helper::{ password, jwt };
+
 use mongodb::results::{ InsertOneResult };
 use chrono::{Utc, Duration};
 
@@ -131,7 +132,8 @@ pub async fn login(req: web::Json<UserLogin>) -> impl Responder {
                 email: email,
                 age: age,
                 gender: gender,
-                username: username
+                username: username,
+                image: None
             };
 
             let token = jwt::sign::<PayloadUser>(payload);
